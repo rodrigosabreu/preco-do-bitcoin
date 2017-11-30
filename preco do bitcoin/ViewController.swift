@@ -13,12 +13,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let url = URL(string: "https://blockchain.info/pt/ticker"){
+            let tarefa = URLSession.shared.dataTask(with: url) { (dados, requisicao, erro) in
+                
+                if erro == nil{
+                    print("Sucesso ao fazer a consulta do preço.")
+                }else{
+                    print("Erro ao fazer a consulta do preço.")
+                }
+                
+            }
+            
+            tarefa.resume()
+            
+        }/*fim do if*/
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 
 
 }
